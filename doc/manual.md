@@ -5,10 +5,10 @@ The random sentence generator is a Java application that aims to generate random
 ### 1.1 Features
 
 * **Random Sentence Generation:** Generates a randomized sentence based on a user-provided input string.
-* **Syntax tree:**
+* **Syntax tree:** Application provides the syntax tree of the input string.
 * **Multiple Sentence Generation:** Allows the user to generate multiple output sentences from the same input string.
-* **Input Toxicity:**
-* **Output Toxicity Check:**
+* **Input Toxicity:** Input strings are accepted only if their toxicity level is lower than 0.7.
+* **Output Toxicity Check:** It's possible to have the same toxicity level filter on the output strings.
 * **Tense Selection:** Provides the user with the ability to choose the grammatical tense for the generated sentences.
 * **Add and Remove words**: Enables the user to add new words to, and later remove words from, an internal vocabulary.
 * **Change Context:** Allows the user to completely replace the internal vocabulary based on a given text.
@@ -17,9 +17,9 @@ The random sentence generator is a Java application that aims to generate random
 
 ## 2. Functionality
 
-The application first parses the string entered by the user via the Google Cloud API. Thanks to the Google Cloud API, it is able to associate a WordTyep to the various tokens that make up a word.
+The application first parses the string entered by the user via the Google Cloud API. Thanks to the Google Cloud API, it is able to associate a WordType to the various tokens that make up a word.
 
-The system maintains an internal template record from which one is drawn. This is first filled with usable words entered by the user then completed with an internal record of words. In order to generate random sentences the system randomly fishes words and pseudorandomly creates templates to fill in.
+The system maintains an internal record of templates. A template is chosen randomly: this is first filled with usable words entered by the user then completed with an internal record of words.
 
 To generate the desired verb tense, the templates are divided by verb tense, in fact when you select a particular verb tense the system will simply return a random template among those with the corresponding tense.
 
@@ -86,8 +86,6 @@ To ensure version consistency for Google Cloud libraries, the project uses the f
 | ------------------ | --------------- | --------- | ----- | ------ |
 | `com.google.cloud` | `libraries-bom` | `26.59.0` | `pom` | `import`|
 
-**Note:** Versions listed as "Managed by Spring Boot Parent" or "Managed by Google Cloud BOM" indicate that the specific version is defined and maintained by these dependency managers to ensure compatibility. The `compile` scope is the default if not otherwise specified.
-
 ---
 
 ## 4. Prerequisites
@@ -126,32 +124,18 @@ To build and run this application, you will need the following installed on your
 
 ## 6. Test Report Generation Tutorial
 
-### Prerequisites
-Before running the test report generation, ensure that:
-* You have **Maven** installed (`mvn -version` to check).
-* Tests are already implemented and ready to execute.
-
-###  Steps to Generate the Report
-
-1. Run the Tests
-Open the terminal and navigate to your project directory, then execute:
+1. Run the Tests:
     ```bash
     mvn test
     ```
-
-2. Generate the Report
-Once the tests are complete, generate the Surefire report using:
+   
+2. Generate test report:
     ```bash
     mvn surefire-report:report
     ```
 
-3. Locate the Report
-The generated report will be saved in:
-    ```
-    ./target/site
-    ```
-
-4. Open the Report
+3. Visualize test report on your browser:
     ```bash
     open "./target/site/surefire-report.html"
     ```
+
