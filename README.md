@@ -1,2 +1,8 @@
-# random-sentence-generator
-Random sentence generator. Project for the "Elements of Software Engineering" course (AY 2024/2025).
+# Random Sentence Generator
+
+**Version 1.0**
+**Date: May 31, 2025**
+
+---
+
+Credits: Enrico Chinellato, Angelo Frizzo, Samuele Magris, Andrea Miolato.
