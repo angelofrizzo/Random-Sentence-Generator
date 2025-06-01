@@ -5,7 +5,7 @@
 
 ---
 - [Manual](https://github.com/angelofrizzo/random-sentence-generator/blob/main/doc/manual.md)
--  [System Test](https://github.com/angelofrizzo/random-sentence-generator/blob/main/doc/system_test.pdf)
+-  [System Test](https://github.com/angelofrizzo/random-sentence-generator/blob/main/doc/System_test.pdf)
 - [System Sequence Diagram](https://github.com/angelofrizzo/random-sentence-generator/blob/main/design/System%20Sequence%20Diagram.png)
 - [Class Model](https://github.com/angelofrizzo/random-sentence-generator/blob/main/design/Design%20Class%20Model.txt)
 
