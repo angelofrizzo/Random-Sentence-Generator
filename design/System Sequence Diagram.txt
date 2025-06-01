@@ -1,0 +1,30 @@
+title System Sequence Diagram
+
+actor User
+User <- System: askInputSentence
+User -> System: returnInputSentence 
+System -> GoogleApi: ValidateSentence
+System <-- GoogleApi: confirmation
+alt specifyVerbalTime
+User -> System: requestSpecificVerbalTime
+User <-- System: resuting Sentence
+alt syntacticTreeRequested
+User -> System: requestSyntacticTree
+User <-- System: syntacticTree
+else ignoreSyntacticTree
+end
+System -> GoogleApi: ValidateToxicityLevel
+System <-- GoogleApi: ToxicityLevel
+User <-- System: ToxicityLevel
+else randomVerbalTime
+User <-- System: resultingSentence
+alt syntacticTreeRequested
+User -> System: requestSyntacticTree
+User <-- System: syntacticTree
+else ignoreSyntacticTree
+end
+System -> GoogleApi: ValidateToxicityLevel
+System <-- GoogleApi: ToxicityLevel
+User <-- System: ToxicityLevel
+end
+else validationFailed

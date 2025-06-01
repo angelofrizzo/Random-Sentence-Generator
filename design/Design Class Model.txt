@@ -1,0 +1,136 @@
+@startuml
+class WordsRecord{
+
+ -words
+ -rand
+ +loadWordsFromJSon()
+ +addWord()
+ +addWordWithCheck()
+ +getWord()
+ +containsKey()
+ +removeWord()
+ +changeContest()
+
+}
+
+class PriorityItem{
+
+ -item
+ -priority
+ +getItem()
+ +reducePriority()
+ +compareTo()
+
+}
+
+interface UserWordRepository
+
+class UserWord{
+
+ +id
+ +userWord
+ +wordType
+ +getUserWord()
+ +setUserWord()
+ +getWordType()
+ +setWordType()
+}
+
+class TemplatesRecord{
+
+ -tenseTemplates
+ -rand
+ -numOfTemplates
+
+ +loadTemplatesFromJSon()
+ -getIndex()
+ +getRandomTemplate()
+ +getBestTemplate()
+ +getTemplateByTense()
+ +getKeys()
+ +isEnoughAndUpdate()
+}
+
+class TreeNode{
+
+ index
+ children
+ +addChild()
+}
+
+class GenerateTree{
+
+ listNode
+ treeRoot
+ +getTreeAsString()
+}
+
+class SyntaxTree{
+
+ +syntaxTreeGenerator()
+
+}
+interface SentenceRepository
+class SentenceGenerator{
+
+ -templatesRecord
+ -wordsRecord
+ +generateSentences()
+ +generateString()
+ +removeWordFromRecord()
+ +addInputStringtoRecord()
+ +changeContext()
+}
+
+class SentenceController{
+
+ -sentenceRepository 
+ -userWordRepository
+ -sentenceGenerator
+ +listSentence()
+ +addSentence()
+ +addUserWords()
+ +deleteWord()
+ +deleteAllWord()
+ +setContext()
+}
+
+class SentenceAnalyzer{
+
+ +AnalyzeSyntaxResponse()
+ +getWordsAnalyzed()
+}
+class Sentence{
+ +id
+ +promptUtente
+ +SyntaxTree
+ +fraseCasualeList
+ +getPromptUtente()
+ +setPromptUtente()
+ +getFraseCasualeList()
+ +setFraseCasualeList()
+ +addFraseCasuale()
+ +getFraseCasuale()
+ +getFsyntaxTree()
+ +setSyntaxTree()
+}
+class ToxicityController{
+ +isToxic()
+}
+
+SentenceAnalyzer "1" -- "1" SentenceGenerator: analyzes
+SentenceController  ..>  SentenceGenerator: asks sentence
+SentenceController ..> UserWordRepository
+SentenceController ..> SentenceRepository
+SentenceRepository "1" -- "many" Sentence: contains
+UserWordRepository "1" -- "many" UserWord: contains
+GenerateTree "1" -- "1" SentenceGenerator
+SyntaxTree "1" -- "1" SentenceGenerator: builds tree
+TreeNode "1" -- "1" SentenceGenerator
+SentenceGenerator "1" -- "1" Sentence: creates
+SentenceGenerator  ..>  WordsRecord
+SentenceGenerator  ..>  PriorityItem
+SentenceGenerator  ..>  TemplatesRecord
+ToxicityController "many" -- "1"SentenceController: analyzeToxicity
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+object user
+object inputSentence
+object sentenceStructure{
+inputTerms
+}
+object syntacticTree
+object dictionary{
+verbs
+nouns
+adjectives
+}
+object template
+object resultingSentence
+
+user"1"-"*"inputSentence: writes
+inputSentence "1" o--- "1" sentenceStructure: basedOn
+sentenceStructure"1"-"*"template: fills
+inputSentence "1" o- "1" syntacticTree: basedOn
+dictionary"1"--"*"template: fills
+template"1"--"1"resultingSentence: onceFulfilled
+@enduml
