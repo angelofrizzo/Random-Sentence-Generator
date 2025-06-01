@@ -1,4 +1,4 @@
-package com.randomsentence.service;
+package com.randomsentence.controller;
 
 import java.io.FileReader;
 import java.io.Reader;

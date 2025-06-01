@@ -1,4 +1,4 @@
-package com.randomsentence;
+package com.randomsentence.controller;
 
 import com.google.cloud.language.v1.AnalyzeSyntaxResponse;
 

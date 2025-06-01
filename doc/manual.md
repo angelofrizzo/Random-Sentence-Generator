@@ -2,21 +2,71 @@
 
 The random sentence generator is a Java application that aims to generate random sentences based on a sentence entered by the user.
 
-The application relies on the Google Cloud API to perform the syntactic analysis of the sentence in order to extract tokens with which to fill templates.
-
-The application has an internal record of words and an internal record of tense. The application try to fill a "random" template with user token, if it is not enough uses internal words.
-
 ### 1.1 Features
 
 * **Random Sentence Generation:** Generates a randomized sentence based on a user-provided input string.
+* **Syntax tree:**
 * **Multiple Sentence Generation:** Allows the user to generate multiple output sentences from the same input string.
+* **Input Toxicity:**
+* **Output Toxicity Check:**
 * **Tense Selection:** Provides the user with the ability to choose the grammatical tense for the generated sentences.
-* **Add and remove words**: Enables the user to add new words to, and later remove words from, an internal vocabulary.
-* **Change context:** Allows the user to completely replace the internal vocabulary based on a given text.
+* **Add and Remove words**: Enables the user to add new words to, and later remove words from, an internal vocabulary.
+* **Change Context:** Allows the user to completely replace the internal vocabulary based on a given text.
 
 ---
 
-## 2. Prerequisites
+## 2. Functionality
+
+The application first parses the string entered by the user via the Google Cloud API. Thanks to the Google Cloud API, it is able to associate a WordTyep to the various tokens that make up a word.
+
+The system maintains an internal template record from which one is drawn. This is first filled with usable words entered by the user then completed with an internal record of words. In order to generate random sentences the system randomly fishes words and pseudorandomly creates templates to fill in.
+
+To generate the desired verb tense, the templates are divided by verb tense, in fact when you select a particular verb tense the system will simply return a random template among those with the corresponding tense.
+
+In order to add and delete new words to the internal record, the user has the ability to insert words to the internal record, which will be treated in the same way as other words in the record. The user also has the power to delete words he has inserted.
+
+The user also has the option to completely change the words in the internal record. This is done by inserting a long text that contains many different tokens. In general, a text is considered rich enough if it contains a sufficient number of tokens to fill a template for each grammatical tense.
+
+### 2.1 WordTypes
+
+---
+
+## 3. Dependencies
+
+This application uses the following main dependencies, as defined in the `pom.xml` file:
+
+### 3.1 Main Dependencies
+
+| Group ID                 | Artifact ID                     | Version                         | Scope   |
+| ------------------------ | ------------------------------- | ------------------------------- | ------- |
+| `org.springframework.boot` | `spring-boot-starter-web`       | Managed by Spring Boot Parent | compile |
+| `org.springframework.boot` | `spring-boot-starter-data-jpa`  | Managed by Spring Boot Parent | compile |
+| `org.springframework.boot` | `spring-boot-starter-thymeleaf` | Managed by Spring Boot Parent | compile |
+| `com.h2database`         | `h2`                            | Managed by Spring Boot Parent | runtime |
+| `com.google.code.gson`   | `gson`                          | `2.10.1`                        | compile |
+| `com.google.cloud`       | `google-cloud-language`         | Managed by Google Cloud BOM   | compile |
+
+### 3.2 Test Dependencies
+
+| Group ID              | Artifact ID               | Version                         | Scope   |
+| --------------------- | ------------------------- | ------------------------------- | ------- |
+| `org.mockito`         | `mockito-core`            | Managed by Spring Boot Parent | test    |
+| `org.mockito`         | `mockito-junit-jupiter`   | Managed by Spring Boot Parent | test    |
+| `org.junit.jupiter`   | `junit-jupiter-api`       | Managed by Spring Boot Parent | test    |
+
+### 3.3 Dependency Management
+
+To ensure version consistency for Google Cloud libraries, the project uses the following Bill of Materials (BOM):
+
+| Group ID           | Artifact ID     | Version   | Type  | Scope  |
+| ------------------ | --------------- | --------- | ----- | ------ |
+| `com.google.cloud` | `libraries-bom` | `26.59.0` | `pom` | `import`|
+
+**Note:** Versions listed as "Managed by Spring Boot Parent" or "Managed by Google Cloud BOM" indicate that the specific version is defined and maintained by these dependency managers to ensure compatibility. The `compile` scope is the default if not otherwise specified.
+
+---
+
+## 4. Prerequisites
 
 To build and run this application, you will need the following installed on your system:
 
@@ -28,7 +78,7 @@ To build and run this application, you will need the following installed on your
 
 ---
 
-## 3. Setup & Building the Project
+## 5. Setup & Building the Project
 
 1. **Clone the Repository:**
     ```bash

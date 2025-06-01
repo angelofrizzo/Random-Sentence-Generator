@@ -1,4 +1,4 @@
-package com.randomsentence;
+package com.randomsentence.client;
 
 import java.io.IOException;
 

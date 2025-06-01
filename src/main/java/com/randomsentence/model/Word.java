@@ -1,4 +1,4 @@
-package com.randomsentence;
+package com.randomsentence.model;
 
 public class Word {
     private final String word;

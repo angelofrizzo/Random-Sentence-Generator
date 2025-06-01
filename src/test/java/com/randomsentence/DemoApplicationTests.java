@@ -3,6 +3,12 @@ package com.randomsentence;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.randomsentence.controller.SentenceController;
+import com.randomsentence.model.Sentence;
+import com.randomsentence.model.UserWord;
+import com.randomsentence.repository.SentenceRepository;
+import com.randomsentence.repository.UserWordRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;

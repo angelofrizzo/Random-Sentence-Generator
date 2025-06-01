@@ -1,8 +1,12 @@
-package com.randomsentence;
+package com.randomsentence.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.randomsentence.client.ToxicityController;
+import com.randomsentence.model.Sentence;
+import com.randomsentence.model.UserWord;
+import com.randomsentence.model.Word;
 import com.randomsentence.repository.SentenceRepository;
 import com.randomsentence.repository.UserWordRepository;
 import org.springframework.beans.factory.annotation.Autowired;

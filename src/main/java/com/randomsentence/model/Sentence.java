@@ -1,4 +1,4 @@
-package com.randomsentence;
+package com.randomsentence.model;
 import java.util.ArrayList;
 import java.util.List;
 
