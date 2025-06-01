@@ -112,7 +112,7 @@ public class SentenceController {
 
 
     //------Map the request /userWord/context to add a context to the genereted sentences------- /
-     @PostMapping("/context")
+    @PostMapping("/context")
     public String setContext(@RequestParam String context,RedirectAttributes redirectAttributes) {
         boolean b=sentenceGenerator.changeContext(context);
         if(!b){
@@ -124,5 +124,5 @@ public class SentenceController {
         }
         return "redirect:/sentence";
     }
-    
+
 }

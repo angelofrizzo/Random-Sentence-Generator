@@ -28,3 +28,7 @@ replay_pid*
 
 # Google Cloude KEY
 key.json
+
+# IDE
+.idea
+.vscode

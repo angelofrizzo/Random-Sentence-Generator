@@ -84,7 +84,7 @@ public class SentenceGenerator {
         public Word word;
         public boolean check;
 
-        WordCheck(Word word, boolean check) {
+        public WordCheck(Word word, boolean check) {
             this.word = word;
             this.check = check;
         }
