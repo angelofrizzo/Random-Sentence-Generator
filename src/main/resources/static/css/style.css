@@ -1,0 +1,145 @@
+/* Imposta uno stile generale per il corpo della pagina */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Stile per il titolo */
+h1 {
+    color: #0077cc;
+    margin-bottom: 20px;
+}
+
+/* Stile per la lista */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 5px auto;
+    border-radius: 5px;
+    width: 50%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Stile per il form */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+button {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+#ridimensiona1 {
+    transform: scale(0.6);
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.error-label {
+    color: #ff0000; /* Rosso per [ERROR] */
+    font-weight: bold;
+    margin-right: 5px;
+}
+/* Classe per il form per Change Contex*/
+.full-width-form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.full-width-form textarea {
+    width: 100%;
+    height: 400px;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* Bottone all'interno del form specifico */
+.full-width-form button {
+    width: 100%;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.full-width-form button:hover {
+    background-color: #0056b3;
+}
