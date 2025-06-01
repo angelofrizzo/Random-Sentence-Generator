@@ -90,3 +90,39 @@ To build and run this application, you will need the following installed on your
    ```bash
     mvn spring-boot:run
    ```
+
+
+
+# Test Report Generation Tutorial
+
+## Prerequisites
+Before running the test report generation, ensure that:
+- You have **Maven** installed (`mvn -version` to check).
+- Tests are already implemented and ready to execute.
+
+##  Steps to Generate the Report
+
+### Run the Tests
+Open the terminal and navigate to your project directory, then execute:
+```bash
+mvn test
+```
+### Generate the Report
+ Once the tests are complete, generate the Surefire report using:
+
+```bash
+mvn surefire-report:report
+```
+### Locate the Report
+The generated report will be saved in:
+```bash
+target/site/surefire-report.html
+```
+### Open the Report
+You can open the report in microsoft edge using:
+
+```bash
+start msedge "C:\Users\YOUR_NAME\Desktop\random-sentence-generator\target\site\surefire-report.html"
+```
+(Replace the path with the actual location of your report file.)
+
