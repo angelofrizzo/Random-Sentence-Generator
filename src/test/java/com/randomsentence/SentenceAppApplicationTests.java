@@ -1,4 +1,11 @@
-package com.example.demo;
+package com.randomsentence;
+
+import com.randomsentence.client.ToxicityController;
+import com.randomsentence.model.Sentence;
+import com.randomsentence.model.UserWord;
+import com.randomsentence.model.Word;
+import com.randomsentence.repository.SentenceRepository;
+import com.randomsentence.repository.UserWordRepository;
 
 import java.util.List;
 
@@ -23,9 +30,12 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.demo.SentenceGenerator.WordCheck;
 
-class DemoApplicationTests {
+import com.randomsentence.controller.SentenceController;
+import com.randomsentence.controller.SentenceGenerator;
+import com.randomsentence.controller.SentenceGenerator.WordCheck;
+
+class SentenceAppApplicationTests {
 
     @Mock
     private SentenceRepository sentenceRepository;
@@ -146,6 +156,7 @@ void testAddSentence_FilterToxicGeneratedSentences() {
     @Test
 void testAddUserWord_Success() {
     String userWord = "example";
+    Word neWord=new Word(userWord, userWord);
     List<WordCheck> mockWordChecks = List.of(
         new WordCheck(new Word("example", "NOUN"), true),
         new WordCheck(new Word("test", "VERB"), false) // Questa parola NON deve essere salvata
