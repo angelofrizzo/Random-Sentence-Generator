@@ -4,6 +4,7 @@
 **Date: May 31, 2025**
 
 ---
--[MAnual](https://github.com/angelofrizzo/random-sentence-generator/blob/main/doc/manual.md)
+-[Manual](https://github.com/angelofrizzo/random-sentence-generator/blob/main/doc/manual.md)
+-[System Test](https://github.com/angelofrizzo/random-sentence-generator/blob/main/doc/system_test.pdf)
 
 Credits: Enrico Chinellato, Angelo Frizzo, Samuele Magris, Andrea Miolato.
