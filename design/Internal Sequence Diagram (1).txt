@@ -1,0 +1,61 @@
+Title Return Generated Sentence with Syntax Tree
+
+actor User
+participant sentenceController
+participant toxicityController
+participant sentenceGenerator
+participant sentenceAnalyzer
+participant syntaxTree
+participant Google Api
+
+activate User
+activate sentenceController
+User -> sentenceController :addSentence()
+activate toxicityController
+sentenceController -> toxicityController: isToxic()
+toxicityController -> Google Api: moderateText
+toxicityController <-- Google Api: moderatedTextResponse
+alt toxic: true
+sentenceController <-- toxicityController: true
+sentenceController -x User: error
+else toxic: false
+toxicityController --> sentenceController: false
+deactivate toxicityController
+activate sentenceGenerator
+sentenceController -> sentenceGenerator: generateSentence()
+activate sentenceAnalyzer
+sentenceGenerator -> sentenceAnalyzer: analyzeSentence()
+activate Google Api
+sentenceAnalyzer -> Google Api: analyzeSyntax()
+Google Api --> sentenceAnalyzer: inputSentenceAnalyzed
+deactivate Google Api
+sentenceGenerator -> sentenceAnalyzer: getWordsAnalyzed()
+sentenceGenerator <-- sentenceAnalyzer: wordsList
+deactivate sentenceAnalyzer
+loop
+sentenceGenerator <- sentenceGenerator: generateString()
+end
+activate syntaxTree
+sentenceGenerator -> syntaxTree: syntaxTreeGenerator()
+sentenceGenerator <-- syntaxTree: syntaxTree
+deactivate syntaxTree
+sentenceController <-- sentenceGenerator: generatedSentence
+alt toxicityToggler: activated
+loop
+activate toxicityController
+sentenceController -> toxicityController: isToxic()
+alt true
+toxicityController --> sentenceController: true
+else false
+toxicityController --> sentenceController: false
+deactivate toxicityController
+deactivate sentenceGenerator
+User <-- sentenceController: generatedSentence
+end
+end
+else toxicityToggler: notActivated
+sentenceController -> User: generatedSentence
+deactivate sentenceController
+deactivate User
+end
+end

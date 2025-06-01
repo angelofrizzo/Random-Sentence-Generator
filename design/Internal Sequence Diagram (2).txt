@@ -1,0 +1,40 @@
+Title Change Specific Context of the Resulting Sentence
+
+actor User
+participant controller
+participant sentenceGenerator
+participant wordsRecord
+participant templatesRecord
+participant sentenceAnalyzer
+participant Google Api
+
+activate User
+activate controller
+User -> controller :changeContext()
+deactivate User
+
+activate sentenceGenerator
+controller -> sentenceGenerator: changeContext()
+deactivate controller
+activate sentenceAnalyzer
+sentenceGenerator -> sentenceAnalyzer: analyzeSentence()
+activate Google Api
+sentenceAnalyzer -> Google Api: analyzeSyntax()
+Google Api --> sentenceAnalyzer: inputSentenceAnalyzed
+deactivate Google Api
+sentenceGenerator -> sentenceAnalyzer: getWordsAnalyzed()
+sentenceGenerator <-- sentenceAnalyzer: wordsList
+deactivate sentenceAnalyzer
+activate templatesRecord
+templatesRecord <- sentenceGenerator: isEnough()
+alt 
+sentenceGenerator <-- templatesRecord: true
+activate wordsRecord
+wordsRecord <- sentenceGenerator: changeContext()
+deactivate wordsRecord
+else 
+sentenceGenerator <-- templatesRecord: false
+deactivate templatesRecord
+deactivate sentenceGenerator
+end
+

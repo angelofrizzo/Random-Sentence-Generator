@@ -1,0 +1,35 @@
+Title Adds User's word to Words Record
+
+actor User
+participant sentenceController
+participant userWordRepository
+participant sentenceGenerator
+participant sentenceAnalyzer
+participant wordsRecord
+
+
+activate User
+activate sentenceController
+User -> sentenceController :addUserWords()
+deactivate User
+activate sentenceGenerator
+sentenceController -> sentenceGenerator: addInputStringToRecord()
+activate sentenceAnalyzer
+sentenceGenerator -> sentenceAnalyzer: getWordsAnalyzed()
+sentenceAnalyzer <- sentenceAnalyzer: analyzeSentence()
+sentenceGenerator <-- sentenceAnalyzer: wordsAnalyzed
+deactivate sentenceAnalyzer
+activate wordsRecord
+loop
+sentenceGenerator -> wordsRecord: addWordWithCheck
+sentenceGenerator <-- wordsRecord: true/false
+deactivate wordsRecord
+end
+sentenceController <-- sentenceGenerator: wordsChecked
+deactivate sentenceGenerator
+loop 
+activate userWordRepository
+sentenceController -> userWordRepository: save()
+deactivate sentenceController
+deactivate userWordRepository
+end
