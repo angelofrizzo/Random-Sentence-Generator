@@ -1,2 +1,2 @@
-# Random-Sentence-Generator
+# random-sentence-generator
 Random sentence generator. Project for the "Elements of Software Engineering" course (AY 2024/2025).
