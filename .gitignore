@@ -25,3 +25,6 @@ replay_pid*
 
 # System
 .DS_Store
+
+# Google Cloude KEY
+key.json
