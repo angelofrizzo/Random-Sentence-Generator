@@ -1,7 +1,8 @@
-package com.randomsentence;
+package com.randomsentence.service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.randomsentence.model.Word;
 
 import java.io.FileReader;
 import java.io.Reader;

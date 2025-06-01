@@ -3,6 +3,7 @@ package com.randomsentence;
 import com.google.cloud.language.v1.AnalyzeSyntaxResponse;
 import com.google.cloud.language.v1.Document;
 import com.google.cloud.language.v1.LanguageServiceClient;
+import com.randomsentence.model.Word;
 
 import java.util.ArrayList;
 import java.util.List;

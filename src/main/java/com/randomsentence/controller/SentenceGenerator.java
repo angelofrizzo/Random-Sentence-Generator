@@ -1,9 +1,13 @@
-package com.randomsentence;
+package com.randomsentence.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.cloud.language.v1.AnalyzeSyntaxResponse;
+import com.randomsentence.SentenceAnalyzer;
+import com.randomsentence.SyntaxTree;
+import com.randomsentence.model.Sentence;
+import com.randomsentence.model.Word;
 
 public class SentenceGenerator {
     // Records that manage the possible template and words

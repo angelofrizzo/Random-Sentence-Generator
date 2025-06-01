@@ -1,4 +1,4 @@
-package com.randomsentence;
+package com.randomsentence.service;
 
 import java.io.FileReader;
 import java.io.Reader;
@@ -11,6 +11,7 @@ import java.util.Vector;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.randomsentence.model.Word;
 
 public class TemplatesRecord {
     private final Random rand;
