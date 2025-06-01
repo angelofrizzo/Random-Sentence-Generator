@@ -13,24 +13,33 @@ public class UserWord {
     public String wordType;
     
 
-    // Costruttori
+    // Constructors
     public UserWord() { }
 
     public UserWord(String userWord) {
         this.userWord=userWord;
         this.wordType="Null";
     }
+
     public UserWord(String userWord, String wordType) {
         this.userWord=userWord;
         this.wordType=wordType;
     }
-    
 
-    // Getter e Setter
-    public String getUserWord() { return userWord; }
-    public void setUserWord(String title) { this.userWord = title; }
+    // Getters and Setters
+    public String getUserWord() {
+        return userWord;
+    }
 
-    public String getWordType(){return wordType;}
-    public void setWordType(String type) { this.wordType = type; }
+    public void setUserWord(String title) {
+        this.userWord = title;
+    }
 
+    public String getWordType(){
+        return wordType;
+    }
+
+    public void setWordType(String type) {
+        this.wordType = type;
+    }
 }

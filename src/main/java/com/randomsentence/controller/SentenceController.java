@@ -28,8 +28,8 @@ public class SentenceController {
 
     @Autowired
     private UserWordRepository userWordRepository;
-    private final SentenceGenerator sentenceGenerator = new SentenceGenerator();
 
+    private final SentenceGenerator sentenceGenerator = new SentenceGenerator();
 
     // -----Return data to /sentence ------- //
     @GetMapping
@@ -64,7 +64,6 @@ public class SentenceController {
         return "redirect:/sentence";
     }
 
-
     //------Map the request /sentence/userWord to add UserWords to the repository------- //
     @PostMapping("/userWord")
     public String addUserWord(@RequestParam String userWord, RedirectAttributes redirectAttributes) {
@@ -83,8 +82,6 @@ public class SentenceController {
         return "redirect:/sentence";
     }
 
-
-
     //------Map the request /userWord/delete to remove a specific UserWord from the repository------- //
     @PostMapping("/userWord/delete")
     public String deleteWord(@RequestParam Long id) {
@@ -96,22 +93,20 @@ public class SentenceController {
         return "redirect:/sentence";
     }
 
-
     //------Map the request /userWord/deleteAll to remove all UserWord from the repository------- //
     @PostMapping("/userWord/deleteAll")
     public String deleteAllWord() {
         for(UserWord userWordToDelete:userWordRepository.findAll()){
-            //remove all user's word from the sentenceGenerator repository (but not our defoult words)
-            Word wordToDelte = new Word(userWordToDelete.userWord,userWordToDelete.wordType);
-            sentenceGenerator.removeWordFromRecord(wordToDelte);
+            //remove all user's word from the sentenceGenerator repository (but not our default words)
+            Word wordToDelete = new Word(userWordToDelete.userWord,userWordToDelete.wordType);
+            sentenceGenerator.removeWordFromRecord(wordToDelete);
 
         }
         userWordRepository.deleteAll();
         return "redirect:/sentence";
     }
 
-
-    //------Map the request /userWord/context to add a context to the genereted sentences------- /
+    //------Map the request /userWord/context to add a context to the generated sentences------- /
     @PostMapping("/context")
     public String setContext(@RequestParam String context,RedirectAttributes redirectAttributes) {
         boolean b=sentenceGenerator.changeContext(context);
@@ -124,5 +119,4 @@ public class SentenceController {
         }
         return "redirect:/sentence";
     }
-
 }
