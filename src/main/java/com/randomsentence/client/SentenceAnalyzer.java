@@ -68,7 +68,6 @@ public class SentenceAnalyzer {
                                         wordsAnalyzed.add(new Word(token.getText().getContent(), "VERB_PRES_3SG"));
                                     } else {
                                         wordsAnalyzed.add(new Word(token.getText().getContent(), "VERB_BASE"));
-                                        wordsAnalyzed.add(new Word(token.getText().getContent(), "VERB_PRES_NON_3SG"));
                                     }
                                 }
                                 case PAST -> {

@@ -88,22 +88,6 @@
     "they",
     "we"
   ],
-  "VERB_PRES_NON_3SG": [
-    "run",
-    "eat",
-    "think",
-    "play",
-    "shine",
-    "explore",
-    "discover",
-    "sing",
-    "work",
-    "feel",
-    "read",
-    "move",
-    "achieve",
-    "understand"
-  ],
   "NOUN_PL": [
     "cats",
     "trees",
@@ -124,20 +108,6 @@
     "occupants",
     "results"
   ],
-  "PRONOUN_1SG": [
-    "I"
-  ],
-  "MODAL": [
-    "will",
-    "can",
-    "should",
-    "may",
-    "must",
-    "could",
-    "might",
-    "would",
-    "shall"
-  ],
   "VERB_BASE": [
     "find",
     "speak",
@@ -150,23 +120,6 @@
     "move",
     "play",
     "start"
-  ],
-  "SUBJECT_SG": [
-    "dog",
-    "car",
-    "student",
-    "he",
-    "she",
-    "it",
-    "detective",
-    "weather",
-    "machine",
-    "cat",
-    "friend",
-    "artist"
-  ],
-  "AUX_BE_PRES_SG": [
-    "is"
   ],
   "VERB_ING": [
     "barking",
@@ -209,29 +162,5 @@
     "hid",
     "investigated",
     "chased"
-  ],
-  "AUX_DO_PRES_SG": [
-    "does"
-  ],
-  "SUBJECT_PL": [
-    "children",
-    "people",
-    "birds",
-    "they",
-    "we",
-    "friends",
-    "results",
-    "scientists",
-    "students",
-    "teams"
-  ],
-  "AUX_BE_PRES_PL": [
-    "are"
-  ],
-  "AUX_BE_PAST_SG": [
-    "was"
-  ],
-  "AUX_BE_PAST_PL": [
-    "were"
   ]
 }

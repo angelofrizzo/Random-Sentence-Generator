@@ -27,7 +27,31 @@ In order to add and delete new words to the internal record, the user has the ab
 
 The user also has the option to completely change the words in the internal record. This is done by inserting a long text that contains many different tokens. In general, a text is considered rich enough if it contains a sufficient number of tokens to fill a template for each grammatical tense.
 
-### 2.1 WordTypes
+### 2.1 Templates
+
+This application has 63 implemented templates. However, the collection can be expanded by editing the `templates.json` file located in the `./src/resources/records` directory.
+
+### 2.2 Words
+
+It has already been mentioned that words can be added at run-time via the GUI. However, they can also be added at compile-time by editing the `words.json` file located in the `./src/resources/records` directory, paying close attention to assign each word to its corresponding type.
+
+### 2.3 WordType
+
+The currently accepted tokens are listed below. Proper functioning is not guaranteed if words or templates that use previously supported types are added to the `templates.json` and `words.json` files.
+
+| Word Type           | Examples                 |
+|---------------------|--------------------------|
+| `PRONOUN_PL`        | `they, we`               |
+| `PRONOUN_3SG`       | `he, she, it`            |
+| `NOUN_SG`           | `cat, tree, ...`         |
+| `NOUN_PL`           | `ideas, birds, ...`      |
+| `VERB_PRES_3SG`     | `runs, eats, ...`        |
+| `VERB_BASE`         | `find, improve, ...`     |
+| `VERB_PAST`         | `jumped, read, ...`      |
+| `CONJUNCTION`       | `and, but, ...`          |
+| `PREPOSITION`       | `on, under, ...`         |
+| `ADJ`               | `happy, bright, ...`     |
+| `ADV`               | `quickly, silently, ...` |
 
 ---
 
@@ -37,14 +61,14 @@ This application uses the following main dependencies, as defined in the `pom.xm
 
 ### 3.1 Main Dependencies
 
-| Group ID                 | Artifact ID                     | Version                         | Scope   |
-| ------------------------ | ------------------------------- | ------------------------------- | ------- |
-| `org.springframework.boot` | `spring-boot-starter-web`       | Managed by Spring Boot Parent | compile |
-| `org.springframework.boot` | `spring-boot-starter-data-jpa`  | Managed by Spring Boot Parent | compile |
-| `org.springframework.boot` | `spring-boot-starter-thymeleaf` | Managed by Spring Boot Parent | compile |
-| `com.h2database`         | `h2`                            | Managed by Spring Boot Parent | runtime |
-| `com.google.code.gson`   | `gson`                          | `2.10.1`                        | compile |
-| `com.google.cloud`       | `google-cloud-language`         | Managed by Google Cloud BOM   | compile |
+| Group ID                 | Artifact ID                      | Version                       | Scope   |
+| ------------------------ |----------------------------------|-------------------------------| ------- |
+| `org.springframework.boot` | `spring-boot-starter-web`        | Managed by Spring Boot Parent | compile |
+| `org.springframework.boot` | `spring-boot-starter-data-jpa`   | Managed by Spring Boot Parent | compile |
+| `org.springframework.boot` | `spring-boot-starter-thymeleaf`  | Managed by Spring Boot Parent | compile |
+| `com.h2database`         | `h2`                             | Managed by Spring Boot Parent | runtime |
+| `com.google.code.gson`   | `gson`                           | `2.10.1`                      | compile |
+| `com.google.cloud`       | `google-cloud-language`          | Managed by Google Cloud BOM   | compile |
 
 ### 3.2 Test Dependencies
 
@@ -91,38 +115,36 @@ To build and run this application, you will need the following installed on your
     mvn spring-boot:run
    ```
 
+---
 
+## 6. Test Report Generation Tutorial
 
-# Test Report Generation Tutorial
-
-## Prerequisites
+### Prerequisites
 Before running the test report generation, ensure that:
-- You have **Maven** installed (`mvn -version` to check).
-- Tests are already implemented and ready to execute.
+* You have **Maven** installed (`mvn -version` to check).
+* Tests are already implemented and ready to execute.
 
-##  Steps to Generate the Report
+###  Steps to Generate the Report
 
-### Run the Tests
+1. Run the Tests
 Open the terminal and navigate to your project directory, then execute:
-```bash
-mvn test
-```
-### Generate the Report
- Once the tests are complete, generate the Surefire report using:
+    ```bash
+    mvn test
+    ```
 
-```bash
-mvn surefire-report:report
-```
-### Locate the Report
+2. Generate the Report
+Once the tests are complete, generate the Surefire report using:
+    ```bash
+    mvn surefire-report:report
+    ```
+
+3. Locate the Report
 The generated report will be saved in:
-```bash
-target/site/surefire-report.html
-```
-### Open the Report
-You can open the report in microsoft edge using:
+    ```
+    ./target/site
+    ```
 
-```bash
-start msedge "C:\Users\YOUR_NAME\Desktop\random-sentence-generator\target\site\surefire-report.html"
-```
-(Replace the path with the actual location of your report file.)
-
+4. Open the Report
+    ```bash
+    open "./target/site/surefire-report.html"
+    ```
