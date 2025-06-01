@@ -8,11 +8,11 @@
 		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>com.randomsentencegenerator</groupId>
+	<artifactId>rsg</artifactId>
+	<version>1.0</version>
+	<name>Random Sentence Generator</name>
+	<description>Project for the "Elements of Software Engineering" course (AY 2024/2025).</description>
 	<url/>
 	<licenses>
 		<license/>

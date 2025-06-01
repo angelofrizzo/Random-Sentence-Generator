@@ -104,15 +104,22 @@ To build and run this application, you will need the following installed on your
 
 ## 5. Setup & Building the Project
 
-1. **Clone the Repository:**
+1. Clone the Repository:
     ```bash
-    git clone https://github.com/angelofrizzo/progetto-ingegneria-software
-    cd progetto-ingegneria-software
+    git clone https://github.com/angelofrizzo/random-sentence-generator
+    cd random-sentence-generator
     ```
 
-2. To build the project and package it into an executable JAR file, navigate to the root directory of the project (where the `pom.xml` file is located) and run the following Maven command:
+2. To build the project and package it into an executable JAR file:
    ```bash
-    mvn spring-boot:run
+   mvn clean package
+   mvn compile
+   ```
+
+3. To run the project as a file JAR and visualize the GUI in your browser:
+   ```bash
+   java -jar target/rsg-1.0.jar
+   open http://localhost:8080/sentence
    ```
 
 ---
